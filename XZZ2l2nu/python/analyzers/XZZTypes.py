@@ -11,13 +11,23 @@ LLType = NTupleObjectType("LLType", baseObjectTypes=[fourVectorType], variables 
 
 
 VVType = NTupleObjectType("VVType", baseObjectTypes=[], variables = [
-  NTupleSubObject("LV",  lambda x : x['pair'],fourVectorType),
+  #NTupleSubObject("LV",  lambda x : x['pair'],fourVectorType),
   NTupleVariable("deltaPhi",   lambda x : x['pair'].deltaPhi(), float),       
   NTupleVariable("deltaR",   lambda x : x['pair'].deltaR(), float),       
   NTupleVariable("mt",   lambda x : x['pair'].mt(), float),       
   NTupleVariable("mta",   lambda x : x['pair'].mta(), float),       
   NTupleVariable("mtb",   lambda x : x['pair'].mtb(), float),       
-  NTupleVariable("mtc",   lambda x : x['pair'].mtc(), float),       
+  NTupleVariable("mtc",   lambda x : x['pair'].mtc(), float),   
+  NTupleVariable("mtd",   lambda x : x['pair'].mtd(), float),   
+  NTupleVariable("mte",   lambda x : x['pair'].mte(), float),   
+  NTupleVariable("pt",   lambda x : x['pair'].pt(), float),       
+  NTupleVariable("px",   lambda x : x['pair'].px(), float),       
+  NTupleVariable("py",   lambda x : x['pair'].py(), float),       
+  NTupleVariable("pz",   lambda x : x['pair'].pz(), float),       
+  NTupleVariable("p",   lambda x : x['pair'].p(), float),       
+  NTupleVariable("e",   lambda x : x['pair'].e(), float),       
+  NTupleVariable("m",   lambda x : x['pair'].m(), float),       
+  NTupleVariable("et",   lambda x : x['pair'].et(), float),       
 ])
 
 

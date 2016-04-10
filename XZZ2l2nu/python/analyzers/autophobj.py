@@ -3,7 +3,7 @@ from math import *
 import ROOT
 #from CMGTools.TTHAnalysis.signedSip import *
 from PhysicsTools.Heppy.analyzers.core.autovars import *
-from PhysicsTools.HeppyCore.utils.deltar import deltaR
+from PhysicsTools.HeppyCore.utils.deltar import deltaR, deltaPhi
 
 objectFloat = NTupleObjectType("builtInType", variables = [
     NTupleVariable("",    lambda x : x),
@@ -19,6 +19,9 @@ twoVectorType = NTupleObjectType("twoVector", variables = [
 
 fourVectorType = NTupleObjectType("fourVector", variables = [
     NTupleVariable("pt",    lambda x : x.pt()),
+    NTupleVariable("px",    lambda x : x.px()),
+    NTupleVariable("py",    lambda x : x.py()),
+    NTupleVariable("pz",    lambda x : x.pz()),
     NTupleVariable("eta",   lambda x : x.eta()),
     NTupleVariable("phi",   lambda x : x.phi()),
     NTupleVariable("mass",  lambda x : x.mass()),
@@ -216,8 +219,12 @@ metType = NTupleObjectType("met", baseObjectTypes = [ fourVectorType ], variable
 ##------------------------------------------  
 
 genParticleType = NTupleObjectType("genParticle", baseObjectTypes = [ particleType ], mcOnly=True, variables = [
-    NTupleVariable("charge",   lambda x : x.threeCharge()/3.0, float),
-    NTupleVariable("status",   lambda x : x.status(),int),
+    NTupleVariable("mt",  lambda x : x.p4().Mt()),
+    NTupleVariable("energy",  lambda x : x.energy() if x else 0),
+    NTupleVariable("et",  lambda x : x.et() if x else 0),
+    NTupleVariable("p",  lambda x : x.p() if x else 0),
+    NTupleVariable("charge",   lambda x : x.threeCharge()/3.0 if x else 0, float),
+    NTupleVariable("status",   lambda x : x.status() if x else 0,int),
 ])
 genParticleWithMotherId = NTupleObjectType("genParticleWithMotherId", baseObjectTypes = [ genParticleType ], mcOnly=True, variables = [
     NTupleVariable("motherId", lambda x : x.mother(0).pdgId() if x.mother(0) else 0, int, help="pdgId of the mother of the particle"),

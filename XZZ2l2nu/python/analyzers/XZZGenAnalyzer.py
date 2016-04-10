@@ -2,6 +2,8 @@ from PhysicsTools.Heppy.analyzers.core.Analyzer import Analyzer
 from PhysicsTools.Heppy.analyzers.core.AutoHandle import AutoHandle
 from PhysicsTools.Heppy.physicsutils.genutils import *
 from PhysicsTools.HeppyCore.statistics.counter import Counter, Counters
+from CMGTools.XZZ2l2nu.tools.Pair import Pair
+import math
 
 class XZZGenAnalyzer( Analyzer ):
     """ Only select X->ZZ->2l2nu events
@@ -38,6 +40,7 @@ class XZZGenAnalyzer( Analyzer ):
         event.genMuons = []
         event.genNeutrinos = []
         event.genJets = []
+        event.genXZZ = []
 
         event.genZBosons = [ p for p in rawGenParticles if (p.pdgId() == 23) and p.numberOfDaughters() > 0 and abs(p.daughter(0).pdgId()) != 23 ]
 
@@ -68,6 +71,29 @@ class XZZGenAnalyzer( Analyzer ):
             event.genIsXZZ2l2j = True
         else:
             event.genIsXZZ2l2j = False
+        
+        if len(event.genZBosons)>=2 :
+            #for idx,genz in enumerate(event.genZBosons):
+                #if genz.numberOfMothers()>1: 
+                #    print 'GenZ ['+str(idx)+']: '
+                #    print '   numberOfMothers(): '+str(genz.numberOfMothers())
+            #    print 'GenZ ['+str(idx)+']: mother(0) '
+            #    print genz.mother(0)
+
+            #if event.genZBosons[0].mother(0) == event.genZBosons[1].mother(0):
+            # if come from the same mother, take the mother
+            #    event.genXZZ.append(event.genZBosons[0].mother(0))
+            # not use the mother directly, because it doesn't seem to give the right mt... not yet understand why.     
+            # create a new one sum the two Zs instead.
+            #else:
+            # if not, create a new one sum the two Zs
+            genX = Pair(event.genZBosons[0],event.genZBosons[1],0)
+            #print genX
+            #print 'et='+str(genX.et())+'; Et='+str(genX.energy()*genX.pt()/genX.p())+'; mt='+str(genX.mt())+'; Mt='+str(math.sqrt((genX.energy()*genX.pt()/genX.p())**2-genX.pt()**2))
+            #print 'pt='+str(genX.pt())+'; p='+str(genX.p())+'; E='+str(genX.energy())
+            event.genXZZ.append({'pair':genX})
+            
+
 
 
         if event.genIsXZZ2l2nu:

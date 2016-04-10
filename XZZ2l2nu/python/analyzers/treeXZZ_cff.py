@@ -58,6 +58,7 @@ vvTreeProducer = cfg.Analyzer(
          "genNeutrinos" : NTupleCollection("genNeu", genParticleType, 10, help="Generated neutrinos from W/Z decays"),
          "genLeptons" : NTupleCollection("genLep", genParticleType, 10, help="Generated leptons (e/mu) from W/Z decays"),
          "genZBosons" : NTupleCollection("genZ", genParticleType, 10, help="Generated V bosons"),
+         "genXZZ" : NTupleCollection("genX", VVType, 10, help="Generated X->ZZ"),
          "LLNuNu"  : NTupleCollection("llnunu",LLNuNuType ,5, help="VV candidate with di-lepton and MET"),
          "jets"  : NTupleCollection("jet",corrJetType,15, help="all jets"),
      }
