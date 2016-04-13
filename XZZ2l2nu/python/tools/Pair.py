@@ -31,9 +31,9 @@ class Pair(object):
         et2d = leg2.energy()*leg2.pt()/leg2.p()
         self.MTd = math.sqrt( (et1d+et2d)**2 - self.LV.pt()**2 )
 
-        et1e = math.sqrt(91.188**2+leg1.pt()*leg1.pt())
-        et2e = math.sqrt(91.188**2+leg2.pt()*leg2.pt())
-        self.MTe = math.sqrt( (et1e+et2e)**2 - self.LV.pt()**2 )
+        #et1e = math.sqrt(91.188**2+leg1.pt()*leg1.pt())
+        #et2e = math.sqrt(91.188**2+leg2.pt()*leg2.pt())
+        #self.MTe = math.sqrt( (et1e+et2e)**2 - self.LV.pt()**2 )
 
     def rawP4(self):
         return self.leg1.p4()+self.leg2.p4()
@@ -68,8 +68,8 @@ class Pair(object):
     def mtd(self):
         return self.MTd
 
-    def mte(self):
-        return self.MTe
+    #def mte(self):
+    #    return self.MTe
 
     def pt(self):
         return self.LV.Pt()

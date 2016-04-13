@@ -6,10 +6,10 @@ from CMGTools.XZZ2l2nu.plotting.TreePlotter import TreePlotter
 from CMGTools.XZZ2l2nu.plotting.MergedPlotter import MergedPlotter
 from CMGTools.XZZ2l2nu.plotting.StackPlotter import StackPlotter
 
-#cutChain='loosecut'
+cutChain='loosecut'
 #cutChain='tightzpt100'
 #cutChain='tightzpt100met100'
-cutChain='tightmz15zpt225met165'
+#cutChain='tightmz15zpt225met165'
 #cutChain='tightzpt100met100dphi'
 #cutChain='tightmet250dphi'
 #cutChain='zjetscut'
@@ -70,18 +70,18 @@ ROOT.gROOT.ProcessLine('.x tdrstyle.C')
 sigPlotters=[]
 sigSamples = [
 'BulkGravToZZToZlepZinv_narrow_600', 
-'BulkGravToZZToZlepZinv_narrow_800', 
-'BulkGravToZZToZlepZinv_narrow_1000', 
-'BulkGravToZZToZlepZinv_narrow_1200', 
-'BulkGravToZZToZlepZinv_narrow_1400', 
-'BulkGravToZZToZlepZinv_narrow_1600', 
-'BulkGravToZZToZlepZinv_narrow_1800', 
-'BulkGravToZZToZlepZinv_narrow_2000', 
-'BulkGravToZZToZlepZinv_narrow_2500', 
-'BulkGravToZZToZlepZinv_narrow_3000', 
-'BulkGravToZZToZlepZinv_narrow_3500', 
-'BulkGravToZZToZlepZinv_narrow_4000', 
-'BulkGravToZZToZlepZinv_narrow_4500', 
+#'BulkGravToZZToZlepZinv_narrow_800', 
+#'BulkGravToZZToZlepZinv_narrow_1000', 
+#'BulkGravToZZToZlepZinv_narrow_1200', 
+#'BulkGravToZZToZlepZinv_narrow_1400', 
+#'BulkGravToZZToZlepZinv_narrow_1600', 
+#'BulkGravToZZToZlepZinv_narrow_1800', 
+#'BulkGravToZZToZlepZinv_narrow_2000', 
+#'BulkGravToZZToZlepZinv_narrow_2500', 
+#'BulkGravToZZToZlepZinv_narrow_3000', 
+#'BulkGravToZZToZlepZinv_narrow_3500', 
+#'BulkGravToZZToZlepZinv_narrow_4000', 
+#'BulkGravToZZToZlepZinv_narrow_4500', 
 ]
 
 

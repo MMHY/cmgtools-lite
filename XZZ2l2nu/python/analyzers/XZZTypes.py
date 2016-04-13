@@ -19,7 +19,7 @@ VVType = NTupleObjectType("VVType", baseObjectTypes=[], variables = [
   NTupleVariable("mtb",   lambda x : x['pair'].mtb(), float),       
   NTupleVariable("mtc",   lambda x : x['pair'].mtc(), float),   
   NTupleVariable("mtd",   lambda x : x['pair'].mtd(), float),   
-  NTupleVariable("mte",   lambda x : x['pair'].mte(), float),   
+  #NTupleVariable("mte",   lambda x : x['pair'].mte(), float),   
   NTupleVariable("pt",   lambda x : x['pair'].pt(), float),       
   NTupleVariable("px",   lambda x : x['pair'].px(), float),       
   NTupleVariable("py",   lambda x : x['pair'].py(), float),       
