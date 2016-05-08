@@ -72,19 +72,19 @@ class Pair(object):
     #    return self.MTe
 
     def pt(self):
-        return self.LV.Pt()
+        return self.LV.pt()
 
     def p(self):
-        return self.LV.P()
+        return self.LV.p()
 
     def px(self):
-        return self.LV.Px()
+        return self.LV.px()
 
     def py(self):
-        return self.LV.Py()
+        return self.LV.py()
 
     def pz(self):
-        return self.LV.Pz()
+        return self.LV.pz()
 
     def et(self):
         return self.LV.Et()
